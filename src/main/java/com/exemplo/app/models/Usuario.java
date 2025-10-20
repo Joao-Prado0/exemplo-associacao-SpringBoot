@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 @Entity
 @Getter
@@ -52,4 +53,11 @@ public class Usuario {
     @Size(max = 20)
     @Column(length = 20)
     private String telefone;
+
+    @OneToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_endereco", nullable = false, foreignKey = @ForeignKey(name = "fk_usuario_endereco"))
+    private Endereco endereco;
+
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+    private java.util.List<Emprestimo> emprestimos = new ArrayList<>();
 }
