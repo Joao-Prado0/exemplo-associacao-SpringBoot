@@ -45,7 +45,7 @@ public class Emprestimo {
     private BigDecimal multa;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_exemplar", nullable = false, foreignKey = @ForeignKey(name = "fk_emprestimo_usuario"))
+    @JoinColumn(name = "id_usuario", nullable = false, foreignKey = @ForeignKey(name = "fk_emprestimo_usuario"))
     private Usuario usuario;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)

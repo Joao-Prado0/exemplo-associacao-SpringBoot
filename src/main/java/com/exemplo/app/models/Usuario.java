@@ -12,6 +12,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -24,7 +25,7 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @NotBlank
     @Size(max=100)
@@ -59,5 +60,5 @@ public class Usuario {
     private Endereco endereco;
 
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
-    private java.util.List<Emprestimo> emprestimos = new ArrayList<>();
+    private List<Emprestimo> emprestimos = new ArrayList<>();
 }
